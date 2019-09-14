@@ -2,7 +2,7 @@ from strategies.player import Player
 import random
 
 
-class ProcastinationPlayer(Player):
+class ProcrastinationPlayer(Player):
     """
        Completely random decision based strategy
        """
@@ -139,12 +139,12 @@ class ProcastinationPlayer(Player):
         self.players_cards[showing_player]['has_not'].add(self.current_question[3])
 
     def see_no_card_from_nobody(self):
-        self.unknown_figures=set()
+        self.unknown_figures.clear()
         self.unknown_figures.add(self.current_question[1])
-        self.unknown_weapons=set()
+        self.unknown_weapons.clear()
         self.unknown_weapons.add(self.current_question[2])
         if self.current_question[3] not in self.cards:
-            self.unknown_rooms = set()
+            self.unknown_rooms.clear()
             self.unknown_rooms.add(self.current_question[3])
 
 
@@ -176,13 +176,13 @@ class ProcastinationPlayer(Player):
         for card in all_cards_dict:
             if False not in all_cards_dict[card].values():
                 if card in self.game.figure_names:
-                    self.unknown_figures=set()
+                    self.unknown_figures.clear()
                     self.unknown_figures.add(card)
                 elif card in self.game.weapons:
-                    self.unknown_weapons = set()
+                    self.unknown_weapons.clear()
                     self.unknown_weapons.add(card)
                 else:
-                    self.unknown_rooms = set()
+                    self.unknown_rooms.clear()
                     self.unknown_rooms.add(card)
 
 
